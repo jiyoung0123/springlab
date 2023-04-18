@@ -1,11 +1,16 @@
 package com.kbstar.app;
 import com.kbstar.frame.*;
 import com.kbstar.tv.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     public static void main(String args[]){
-//        app이라는 class는 LTV도 STV도 다 가능하다. 뭐든 다 가능
-        TV tv = new LTV();
+        ApplicationContext factory =
+                new ClassPathXmlApplicationContext("spring.xml");
+
+        TV tv = (TV) factory.getBean("ltv");    //이게 look up 임-ltv라는 id를 가진 걸 찾아라
         tv.turnOn();
+
     }
 }
