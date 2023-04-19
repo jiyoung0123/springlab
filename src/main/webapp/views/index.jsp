@@ -14,7 +14,8 @@
 <body>
     <h1>안녕하세요</h1>
 <%--    html에서 손가락으로 바뀌는건 a 링크밖에 없다--%>
-    <h1><a href="/nex">Next page</a></h1>
+    <h1><a href="/next">Next page</a></h1>
+    <h1><a href="/second">Second page</a></h1>
 
 </body>
 </html>

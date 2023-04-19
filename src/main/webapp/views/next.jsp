@@ -12,5 +12,8 @@
 </head>
 <body>
     <h1>Next Page</h1>
+    <h2>${mydata}</h2>
+    <img src="/img/img01.jpg">
+
 </body>
 </html>
