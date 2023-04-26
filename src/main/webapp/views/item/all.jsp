@@ -30,7 +30,8 @@
                 <tbody>
                 <c:forEach var="obj" items="${allitem}">
                     <tr>
-                        <td ><img class="small_img" src="/img/${obj.imgname}"></td>
+<%--                        application property에서 uimg 등록했으니, uimg만 써도 그 폴더 찾음--%>
+                        <td ><img class="small_img" src="/uimg/${obj.imgname}"></td>
                         <td>${obj.id}</td>
                         <td>${obj.name}</td>
                         <td><fmt:formatNumber value="${obj.price}" type="currency" /></td>

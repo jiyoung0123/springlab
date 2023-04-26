@@ -75,9 +75,9 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
       });
     }
   };
-
-    $(function(){
-        chart02.init();
+//각각의 페이지가 동작이 될 때 호출하는게 좋다. 위의 script는 index.js파일에 한꺼번에 몰아넣
+        $(function(){
+          chart02.init();
     })
 </script>
 
@@ -86,10 +86,7 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
 <div class="col-sm-8 text-left">
   <div class="container" id="chart02">
     <h3>Chart02</h3>
-    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-danger">차트나와라</button>
     <div id="container"></div>
-
-
-
   </div>
 </div>
