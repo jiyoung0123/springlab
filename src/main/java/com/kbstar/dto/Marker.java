@@ -15,5 +15,4 @@ public class Marker {
     private double lng;
     private String img;
     private String loc;
-
 }
