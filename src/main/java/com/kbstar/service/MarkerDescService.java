@@ -1,7 +1,9 @@
 package com.kbstar.service;
 
 import com.kbstar.dto.Marker;
+import com.kbstar.dto.MarkerDesc;
 import com.kbstar.frame.KBService;
+import com.kbstar.mapper.MarkerDescMapper;
 import com.kbstar.mapper.MarkerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,21 +11,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MarkerService implements KBService<Integer, Marker> {
+public class MarkerDescService implements KBService<Integer, MarkerDesc> {
 
     @Autowired
-    MarkerMapper mapper;
+    MarkerDescMapper mapper;
 
     /**
      * 등록 및 가입 진행
      * argument : Object
      * return : null
      *
-     * @param marker
+     * @param markerDesc
      */
     @Override
-    public void register(Marker marker) throws Exception {
-        mapper.insert(marker);
+    public void register(MarkerDesc markerDesc) throws Exception {
+        mapper.insert(markerDesc);
     }
 
     @Override
@@ -32,21 +34,24 @@ public class MarkerService implements KBService<Integer, Marker> {
     }
 
     @Override
-    public void modify(Marker marker) throws Exception {
-        mapper.update(marker);
+    public void modify(MarkerDesc markerDesc) throws Exception {
+        mapper.update(markerDesc);
     }
 
     @Override
-    public Marker get(Integer s) throws Exception {
+    public MarkerDesc get(Integer s) throws Exception {
         return mapper.select(s);
     }
 
     @Override
-    public List<Marker> get() throws Exception {
+    public List<MarkerDesc> get() throws Exception {
         return mapper.selectall();
     }
 
-    public List<Marker> getloc(String loc) throws Exception{
-        return mapper.getloc(loc);
+
+    public List<MarkerDesc> getMarkerDesc(int id) throws Exception {
+        return mapper.getmarkerdesc(id);
     }
+
+
 }

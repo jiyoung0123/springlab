@@ -78,6 +78,7 @@
             <version>1.1</version>
         </dependency>
 
+        <!--CORS 해결을 위한-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -100,5 +101,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -11,17 +11,19 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
 </style>
 <script>
   let map03={
+    //map이라는 변수를 여러개의 함수에서 같이 사용하려고 함수 안에 안 넣고 밖으로 뺀것임
+    //전역변수..
     map:null,
     init:function (){
       this.display()
       $('#s_btn').click(function (){
-        map03.go(37.5459099,  127.0545074,'s');
+        map03.go(37.640446, 127.014702,'s');
       });
       $('#b_btn').click(function (){
-        map03.go(35.1938469, 129.1536102,'b')
+        map03.go(35.1798456, 129.0705432,'b')
       });
       $('#j_btn').click(function (){
-        map03.go(33.5104135, 126.4913534,'j')
+        map03.go(33.4999002, 126.5341787,'j')
       });
     },
     display:function (){
@@ -50,11 +52,26 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
       //marker end
     },
     go:function (lat, lng, loc){
+      var mapContainer = document.querySelector('#map03 > #map'); // 지도를 표시할 div
+      var mapOption = {
+        center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+        level: 5 // 지도의 확대 레벨
+      };
+      map = new kakao.maps.Map(mapContainer, mapOption);
       // 이동할 위도 경도 위치를 생성합니다
-      var moveLatLon = new kakao.maps.LatLng(lat,lng);
+     // var moveLatLon = new kakao.maps.LatLng(lat,lng);
       // 지도 중심을 부드럽게 이동시킵니다
       // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-      map.panTo(moveLatLon);
+     // map.panTo(moveLatLon);
+      //controll start
+      var mapTypeControl = new kakao.maps.MapTypeControl();
+      // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+      // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+      // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+      var zoomControl = new kakao.maps.ZoomControl();
+      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+      //controll end
       var markerPosition  = new kakao.maps.LatLng(lat,lng);
       var marker = new kakao.maps.Marker({
         // 지도 중심좌표에 마커를 생성합니다
@@ -87,14 +104,14 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
         });
         // infoWindow
         var iwContent = '<h2>'+positions[i].title+'</h2>';
-        iwContent += '<img src="/img/'+positions[i].img+'" style="width:50px">';
+        iwContent += '<img src="/uimg/'+positions[i].img+'" style="width:50px">';
         var infowindow = new kakao.maps.InfoWindow({
           position : positions[i].latlng,
           content : iwContent
         });
         kakao.maps.event.addListener(marker, 'mouseover', mouseoverListener(marker, infowindow));
         kakao.maps.event.addListener(marker, 'mouseout', mouseoutListener(marker, infowindow));
-        kakao.maps.event.addListener(marker, 'click', mouseclickListener(positions[i].target));
+        kakao.maps.event.addListener(marker, 'click', mouseclickListener(positions[i].id));
         function mouseoverListener(marker, infowindow) {
           return function(){
             infowindow.open(map, marker);
@@ -107,7 +124,7 @@ c 로 쓰겠다는것, 그래서 밑에 c:out  으로 쓸 수 있음--%>
         }
         function mouseclickListener(target) {
           return function(){
-            location.href = target;
+            location.href = '/map/detail?id='+target;
           };
         }
       } // end for
