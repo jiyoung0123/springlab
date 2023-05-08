@@ -28,6 +28,9 @@
     <script src="https://code.highcharts.com/modules/funnel.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
 
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
 
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -103,7 +106,13 @@
                         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/custinfo?id=${logincust.id}">${logincust.id}</a></li>
+                        <li><a href="/item/allcart?id=${logincust.id}">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                        </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/custinfo?id=${logincust.id}">${logincust.id}님</a></li>
                     </ul>
                 </c:otherwise>
             </c:choose>

@@ -14,11 +14,10 @@ class SelectIDTest {
     @Test
     void contextLoads() {
         try {
-            service.getMyCart("id02");
+            service.getMyCart("id05");
         } catch (Exception e) {
             log.info("★★★★★★★★★★★★★★★ERROR★★★★★★★★★★★★★★★");
             e.printStackTrace();
         }
     }
-
 }

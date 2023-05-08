@@ -32,9 +32,9 @@
                     <tr>
 <%--                        application property에서 uimg 등록했으니, uimg만 써도 그 폴더 찾음--%>
                         <td ><img class="small_img" src="/uimg/${obj.imgname}"></td>
-                        <td>${obj.id}</td>
+                        <td><a href="/item/get?id=${obj.id}">${obj.id}</a></td>
                         <td>${obj.name}</td>
-                        <td><fmt:formatNumber value="${obj.price}" type="currency" /></td>
+                        <td><fmt:formatNumber value="${obj.price}" pattern="###,###원" /></td>
                         <td><fmt:formatDate  value="${obj.rdate}" pattern="yyyy-MM-dd" /></td>
                     </tr>
                 </c:forEach>
