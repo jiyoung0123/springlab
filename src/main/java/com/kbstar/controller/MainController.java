@@ -2,6 +2,7 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
+import com.kbstar.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,10 +30,20 @@ public class MainController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    @RequestMapping("")
-    public String main(){
+    @RequestMapping("/")
+    public String main(Model model) throws Exception {
+        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo",result);
         return "index";
     }
+
+
+
+
+
+
+
+
 
     @RequestMapping("/login")
     public String login(Model model){
