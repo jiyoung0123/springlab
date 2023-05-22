@@ -31,7 +31,6 @@
                 txt += item.tm + ''+item.ta;
                 txt += '</h5>';
             });
-
             $('#w2').html(txt);
         }
     };

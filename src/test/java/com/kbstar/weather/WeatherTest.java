@@ -26,7 +26,8 @@ class WeatherTest {
     @Test
     void contextLoads() throws Exception {
         JSONObject result = null;
-        result = (JSONObject)WeatherUtil.getWeather3("109");
+        result = (JSONObject)WeatherUtil.getWeather3("108");
+        log.info(result+"");
 
     }
 

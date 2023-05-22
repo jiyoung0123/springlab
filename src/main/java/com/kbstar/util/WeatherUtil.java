@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Calendar;
 
+
 public class WeatherUtil {
     public  static String getWeather1(String loc) throws Exception {
         //당일 날짜 yyyymmdd0600 포맷으로 만들기

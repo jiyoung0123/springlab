@@ -22,10 +22,13 @@ class CFRFaceTests {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+    @Autowired
+    CFRFaceUtil faceUtil;
+
     @Test
     void contextLoads() throws ParseException {
         String imgname = "ma.jpg";
-        JSONObject result = (JSONObject) CFRFaceUtil.getResult(imgpath,imgname);
+        JSONObject result = (JSONObject) faceUtil.getResult(imgpath,imgname);
         log.info(result.toJSONString());
     }
 }

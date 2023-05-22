@@ -3,15 +3,25 @@ package com.kbstar.util;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+@Component
 public class CFRFaceUtil {
+    @Value("${clientId}")
+    String clientId;
 
-    public static Object getResult(String imgpath, String imgname) throws ParseException {
+
+
+    @Value("${clientSecret}")
+    String clientSecret;
+
+    public Object getResult(String imgpath, String imgname) throws ParseException {
         String result="";
 
         StringBuffer reqStr = new StringBuffer();

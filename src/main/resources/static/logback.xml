@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!--logs폴더에 저장하겠다! 라는 뜻-->
-    <property name="LOGS_DIR" value="c://project/logs" />
-
+<!--    <property name="LOGS_DIR" value="c://project/logs" />-->
+    <property name="LOGS_DIR" value="/root/logs" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
      <!--화면에 출력할 때는 이렇게 출력해라! 라는 뜻-->
