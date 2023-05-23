@@ -43,6 +43,7 @@ public class MainController {
         return "index";
     }
 
+
     @RequestMapping("/custinfo")
     public String custinfo(Model model,String id) throws Exception {
         Cust cust =null;
